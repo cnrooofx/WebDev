@@ -1,0 +1,177 @@
+@font-face {
+    font-display: swap;
+    font-family: Martel;
+    src: local('Martel'), local('Martel-Regular'),
+         url('media/fonts/martel.woff2') format('woff2'),
+         url('media/fonts/martel.woff') format('woff'),
+         url('media/fonts/martel.ttf') format('truetype');
+}
+
+/* Core */
+html {
+    --background: #E67D66;
+    --black: #2F2F2F;
+    --border: 0.25em solid var(--black);
+    --main-color: #8E3B46;
+    --white: #FFF8F0;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: var(--background);
+    background-image: linear-gradient(var(--background), var(--main-color));
+    color: var(--black);
+    font-family: 'Martel', 'Times New Roman', serif;
+    font-size: 16px;
+}
+h1, p, a, figure, figcaption {
+    padding: 0.5em 0.25em;
+}
+header, main, aside, footer {
+    background-color: var(--white);
+    padding: 1em;
+}
+nav, aside {
+    background-color: #FFF;
+    border: var(--border);
+    border-width: 0.25em 0;
+    padding: 0.8em;
+}
+
+/* Header */
+header {
+    padding: 2em 0 1.5em 0.5em;
+}
+header h1 {
+    border: 0.5em solid #B1B695;
+    border-image-repeat: repeat;
+    border-image-slice: 33.33%;
+    border-image-source: url(media/border-vine.png);
+    border-width: 0 0.5em 0.5em 0.5em;
+    color: var(--main-color);
+    font-family: 'Baskerville', 'Times New Roman', serif;
+    font-size: 3em;
+    padding: 0 0.25em 0.5em 0.25em;
+    text-align: center;
+}
+header p {
+    font-weight: bold;
+    padding-top: 2em;
+    text-align: center;
+}
+
+/* Nav */
+nav ul {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0.1em 0;
+    text-align: center;
+}
+nav li {
+    padding: 0.6em 0.5em;
+}
+nav a {
+    background-color: var(--black);
+    border: 0.1em solid var(--main-color);
+    border-radius: 0.5em;
+    color: var(--white);
+    margin: 0.6em 0.1em;
+    padding: 0.3em 4em;
+    text-decoration: none;
+    transition: background-color 0.7s ease;
+}
+nav a:hover, a[href=""] {
+    background-color: var(--white);
+    border: 0.1em solid var(--black);
+    color: var(--main-color);
+}
+
+/* Main */
+section, article {
+    background-color: #FFF;
+    border: var(--border);
+    column-gap: 2em;
+    column-rule: 0.1em dotted #999;
+    column-width: 30em;
+    margin: 3em 0.2em 1em 0.2em;
+    padding: 1.5em;
+    text-align: justify;
+}
+section p::first-letter, article p::first-letter {
+    font-size: 1.4em;
+    font-style: normal;
+    font-weight: bold;
+}
+i {
+    font-style: italic;
+    font-weight: bold;
+}
+b, a, cite {
+    color: var(--main-color);
+}
+ul, ol {
+    column-gap: 2em;
+    column-width: 20em;
+    margin: 0.5em 2em;
+}
+li {
+    padding: 0.2em;
+}
+figure {
+    break-inside: avoid;
+    text-align: center;
+}
+img {
+    max-width: 100%;
+}
+figcaption {
+    font-size: 0.75em;
+}
+img, section, article {
+    box-shadow: 0 1em 1em #999;
+}
+
+/* Media Queries */
+@media screen and (min-width: 45em) {
+    body {
+        border: 3em solid #000;
+        border-bottom: none;
+        border-image-repeat: repeat;
+        border-image-slice: 33.33%;
+        border-image-source: url(media/border-tile.png);
+        border-top: none;
+        margin: 0 auto;
+        width: 85%;
+    }
+    header h1 {
+        font-size: 4em;
+    }
+    nav ul {
+        flex-direction: row;
+    }
+    nav a {
+        padding: 0.5em 2em;
+    }
+    main > section, main > article {
+        margin: 3em 1em 1em 1em;
+    }
+}
+@media screen and (min-width: 90em) {
+    header h1 {
+        font-size: 5em;
+    }
+    nav a {
+        padding: 0.3em 4em;
+    }
+}
+@media screen and (min-width: 100em) {
+    body {
+        max-width: 100em;
+    }
+}

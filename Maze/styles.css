@@ -1,0 +1,237 @@
+
+/* Fonts */
+@font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Inter'), local('Inter-Regular'),
+         url('media/fonts/Inter-Regular.woff2') format('woff2'),
+         url('media/fonts/Inter-Regular.woff') format('woff'),
+         url('media/fonts/Inter-Regular.otf') format('opentype');
+}
+@font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-weight: 700;
+    src: local('Inter'), local('Inter-Regular'),/*
+         url("media/fonts/Inter-Black.woff2") format("woff2"),
+         url("media/fonts/Inter-Black.woff") format("woff"),*/
+         url('media/fonts/Inter-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-weight: 900;
+    src: local('Inter'), local('Inter-Black'),
+         url("media/fonts/Inter-Black.woff2") format("woff2"),
+         url("media/fonts/Inter-Black.woff") format("woff"),
+         url('media/fonts/Inter-Black.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url("media/fonts/Inter-var.woff2") format("woff2");
+}
+@font-face {
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+  font-named-instance: 'Italic';
+  src: url("media/fonts/Inter-italic-var.woff2") format("woff2");
+}
+body {
+    font-family: 'Inter', Helvetica, Arial, sans-serif;
+}
+@supports (font-variation-settings: normal) {
+    body {
+        font-family: 'Inter var', Helvetica, Arial, sans-serif;
+    }
+}
+
+/* Core */
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    --black: #252627;
+    --main: #4b88a2;
+    --grey: #d3d4d9;
+    --white: #fff9fb;
+}
+body {
+    background: var(--grey);
+    display: grid;
+    font-size: 18px;
+}
+p, figure, figcaption, h2, h3, h4, h5, h6, caption, strong, input, form, label {
+    padding: 0.5em 0.25em;
+}
+header, nav, main, aside, footer, section, article {
+    padding: 1em 0.5em;
+}
+a {
+    color: #4D4575;
+}
+
+/* Header */
+header {
+    background: var(--black);
+    border: 1em solid var(--main);
+    border-width: 0 0 0.5em 0;
+    color: var(--white);
+    text-align: center;
+}
+h1 {
+    font-size: 3em;
+    font-weight: 900;
+}
+
+/* Nav */
+nav ul {
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0.1em 0;
+    padding: 0;
+    text-align: center;
+}
+nav li {
+    flex: 100%;
+    padding: 0.6em 0;
+}
+nav a {
+    border: 0.1em solid var(--main);
+    border-radius: 0.5em;
+    color: var(--white);
+    margin: 0.6em 0.1em;
+    padding: 0.3em 2em;
+    text-decoration: none;
+    transition: background-color 0.7s ease;
+}
+nav a:hover, a[href=""] {
+    background-color: var(--white);
+    border: 0.1em solid var(--black);
+    color: var(--black);
+}
+nav {
+    /* background-color: var(--black); */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+/* Main */
+section, article {
+    background: var(--white);
+    border: 0.25em solid #000;
+    box-shadow: 0 1em 1em #999;
+    margin: 1em 0.5em;
+    overflow-x: auto;
+}
+ul, ol {
+    padding: 0.2em 1.5em;
+}
+li {
+    padding: 0.25em;
+}
+canvas {
+    background-color: var(--black);
+    border: 0.5em solid var(--black);
+    margin: 1em;
+}
+input {
+    display: block;
+    margin: 0.5em;
+    width: 95%;
+}
+input[type="submit"] {
+    width: auto;
+}
+figure {
+    break-inside: avoid;
+}
+img {
+    max-width: 100%;
+}
+
+/* Table */
+table {
+    border-collapse: collapse;
+    margin: 0.5em 0.15em 3em 0.15em;
+    width: 98%;
+}
+caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: left;
+}
+th, td {
+    padding: 0.75em 0.5em;
+}
+td {
+    border-bottom: 0.1em dotted #333;
+}
+th {
+    border-bottom: 0.3em double #333;
+}
+td ~ td, th ~ th {
+    border-left: 0.1em solid #333;
+}
+tr:nth-child(2n) {
+    background-color: rgba(214, 212, 212, 0.5);
+}
+
+/* Media Queries */
+@media screen and (min-width: 60em) {
+    body {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        grid-template-rows: auto;
+        grid-template-areas: "side main"
+                             "side bottom";
+        margin: 0 auto;
+    }
+    header {
+        border: 1em solid var(--main);
+        border-width: 0 0.5em 0.5em 0;
+        grid-area: side;
+        /* min-height: 90vh; */
+    }
+    header h1 {
+        margin: 0.5em auto;
+        text-orientation: sideways;
+        writing-mode: vertical-lr;
+    }
+    main {
+        grid-area: main;
+    }
+    canvas {
+        float: left;
+    }
+    footer {
+        grid-area: bottom;
+    }
+    input, label {
+        width: auto;
+    }
+}
+@media screen and (min-width: 150em) {
+    body {
+        max-width: 100em;
+        margin: 0 auto;
+        width: 85%;
+    }
+    header {
+        border-width: 0 0.5em 0.5em 0.5em;
+    }
+}

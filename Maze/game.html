@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="styles.css" />
+        <title>Play</title>
+        <script src="game.js" type="module"></script>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </head>
+    <body>
+        <header>
+            <h1>Test</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="">Play</a>
+                    </li>
+                    <li>
+                        <a href="leaderboard.py">Leaderboard</a>
+                    </li>
+                    <li>
+                        <a href="account.py">Account</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2>Level: <span id="level">1</span></h2>
+            <label for="health">Health:</label>
+            <progress value="0" max="100" id="health"></progress>
+            <p>
+                Score: <span id="score">0</span>
+            </p>
+            <canvas width="750" height="750"></canvas>
+        </main>
+        <footer>
+            <small>
+                Sprites from OpenGameArt.org courtesy of <a href="https://www.patreon.com/elthen">Elthen</a> &vert; Royalty Free Music by <a href="https://patrickdearteaga.com/royalty-free-music/">Patrick de Artega</a>
+            </small>
+        </footer>
+    </body>
+</html>
